@@ -1,0 +1,48 @@
+/* Page-specific styles shared across dashboards */
+.approval-list { display: flex; flex-direction: column; gap: 10px; }
+.approval-row { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: var(--surface); }
+.approval-row__info { flex: 1; min-width: 0; }
+.approval-row__name { font-size: 13px; font-weight: 600; }
+.approval-row__meta { font-size: 12px; color: var(--text-muted); }
+.approval-row__actions { display: flex; gap: 6px; }
+.empty-note { color: var(--text-muted); font-size: 13px; text-align: center; padding: 24px 0; }
+
+/* ── Product moderation ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.product-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 14px; padding: 18px; transition: border-color .2s, box-shadow .2s; }
+.product-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(0, 212, 170, .12); }
+.product-card--flagged { border-color: var(--danger); }
+.product-img { width: 100%; aspect-ratio: 1.6; border-radius: 10px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 12px; }
+.product-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.product-name { font-size: 14px; font-weight: 700; }
+.product-supplier { font-size: 12px; color: var(--text-muted); }
+.product-price { font: 700 18px 'Clash Display', sans-serif; color: #00a98a; }
+.product-meta { font-size: 12px; color: var(--text-muted); }
+.product-actions { display: flex; gap: 8px; margin-top: 14px; }
+
+/* ── Disputes ── */
+.dispute-list { display: flex; flex-direction: column; gap: 16px; }
+.dispute-card { background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--danger); border-radius: 14px; padding: 18px 20px; display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+.dispute-card--resolved { border-left-color: var(--success); opacity: .75; }
+.dispute-id { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; }
+.dispute-title { font-size: 16px; margin-bottom: 4px; }
+.dispute-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; max-width: 60ch; }
+.dispute-facts { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; }
+.dispute-actions { display: flex; gap: 8px; align-items: flex-start; }
+
+/* ── Advertisements ── */
+.ad-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.ad-card { background: #fff; border: 1.5px solid var(--border); border-left: 4px solid var(--accent); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.ad-card--hero { grid-column: 1 / -1; background: linear-gradient(135deg, var(--primary), #1a3a5c); border: none; color: #fff; }
+.ad-card--hero .ad-meta { color: rgba(255, 255, 255, .65); }
+.ad-card--stopped { border-left-color: var(--text-muted); opacity: .7; }
+.ad-label { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+.ad-card--hero .ad-label { color: var(--accent); }
+.ad-title { font-size: 18px; }
+.ad-meta { font-size: 13px; color: var(--text-muted); }
+.ad-actions { display: flex; gap: 8px; margin-top: 10px; }
+.ad-add { border: 2px dashed var(--border); background: var(--surface); border-radius: 16px; padding: 22px; text-align: center; cursor: pointer; color: var(--text-muted); font: 600 14px 'Plus Jakarta Sans', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 140px; }
+.ad-add:hover { border-color: var(--accent); color: #00a98a; }
+.ad-add i { font-size: 28px; }
+
+.flex-1 { flex: 1; }
