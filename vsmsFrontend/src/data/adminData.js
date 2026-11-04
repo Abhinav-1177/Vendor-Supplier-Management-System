@@ -55,17 +55,11 @@ export const orderStatus = {
 
 // ── User management ──
 export const initialUsers = [
-  { id: 1, name: 'Rahul Gupta', email: 'rahul@mail.com', role: 'Vendor', city: 'Delhi', joined: 'Jan 12, 2026', status: 'Active' },
-  { id: 2, name: 'Priya Mehta', email: 'priya@supply.com', role: 'Supplier', city: 'Mumbai', joined: 'Feb 3, 2026', status: 'Pending' },
-  { id: 3, name: 'Amit Sharma', email: 'amit@mart.com', role: 'Vendor', city: 'Bangalore', joined: 'Mar 17, 2026', status: 'Blocked' },
-  { id: 4, name: 'Neha Verma', email: 'neha@greenleaf.com', role: 'Supplier', city: 'Pune', joined: 'Mar 22, 2026', status: 'Active' },
-];
-
-// ── Product moderation ──
-export const initialProducts = [
-  { id: 1, emoji: '🥛', name: 'Fresh Milk (1L)', supplier: 'PureFresh', city: 'Delhi', price: 48, unit: 'unit', stock: 500, status: 'Review' },
-  { id: 2, emoji: '🌾', name: 'Basmati Rice (5kg)', supplier: 'AgriPlus', city: 'Punjab', price: 340, unit: 'bag', stock: 1200, status: 'Review' },
-  { id: 3, emoji: '🧴', name: 'Mystery Product', supplier: 'UnknownSeller', city: '', price: null, unit: '', stock: null, status: 'Flagged', note: 'Suspected spam' },
+  { id: 1, name: 'Rahul Gupta', businessName: 'RajFoods', email: 'rahul@mail.com', phone: '9876543210', gstin: '07ABCDE1234F1Z5', role: 'Vendor', city: 'Delhi', joined: 'Jan 12, 2026', status: 'Active' },
+  { id: 2, name: 'Priya Mehta', businessName: 'PureFresh', email: 'priya@supply.com', phone: '9812345678', gstin: '27FGHIJ5678K1Z2', role: 'Supplier', city: 'Mumbai', joined: 'Feb 3, 2026', status: 'Pending' },
+  { id: 3, name: 'Amit Sharma', businessName: 'Metro Mart', email: 'amit@mart.com', phone: '9898989898', gstin: '29KLMNO9012P1Z8', role: 'Vendor', city: 'Bangalore', joined: 'Mar 17, 2026', status: 'Blocked' },
+  { id: 4, name: 'Neha Verma', businessName: 'GreenLeaf', email: 'neha@greenleaf.com', phone: '9765432109', gstin: '27QRSTU3456V1Z9', role: 'Supplier', city: 'Pune', joined: 'Mar 22, 2026', status: 'Active' },
+  { id: 5, name: 'Vikram Rao', businessName: 'QuickBuy', email: 'vikram@quickbuy.com', phone: '9123456780', gstin: '36WXYZA7890B1Z4', role: 'Vendor', city: 'Hyderabad', joined: 'Apr 2, 2026', status: 'Pending' },
 ];
 
 // ── Disputes ──

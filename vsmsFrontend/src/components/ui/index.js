@@ -7,3 +7,5 @@ export { default as MiniTabs } from './MiniTabs';
 export { default as PageHeader } from './PageHeader';
 export { default as StatCard } from './StatCard';
 export { default as Modal } from './Modal';
+export { default as ProgressBar } from './ProgressBar';
+export { default as Stars } from './Stars';

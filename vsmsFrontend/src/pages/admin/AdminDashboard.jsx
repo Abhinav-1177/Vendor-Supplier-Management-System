@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Avatar, Badge, Button, Card, DataTable, MiniTabs, PageHeader, StatCard } from '../../components/ui';
 import { ChartCard, DoughnutChart, LineChart } from '../../components/charts';
 import {
@@ -15,14 +16,13 @@ const orderColumns = [
 
 export default function AdminDashboard() {
   const [period, setPeriod] = useState('Monthly');
-  const [approvals, setApprovals] = useState(initialApprovals);
+  const navigate = useNavigate();
+  const approvals = initialApprovals; // later: GET /admin/users?status=PENDING
 
   const today = new Date().toLocaleDateString('en-IN', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });
 
-  // Later: call the approve/reject API here, then remove the row on success
-  const resolve = (id) => setApprovals((list) => list.filter((a) => a.id !== id));
 
   const revenue = revenueByPeriod[period];
 
@@ -72,8 +72,7 @@ export default function AdminDashboard() {
                     <div className="approval-row__meta">{a.meta}</div>
                   </div>
                   <div className="approval-row__actions">
-                    <Button variant="accent" size="sm" icon="bi-check-lg" aria-label={`Approve ${a.name}`} onClick={() => resolve(a.id)} />
-                    <Button variant="danger" size="sm" icon="bi-x-lg" aria-label={`Reject ${a.name}`} onClick={() => resolve(a.id)} />
+                    <Button variant="outline" size="sm" icon="bi-clipboard-check" onClick={() => navigate('/admin/users')}>Review</Button>
                   </div>
                 </div>
               ))}

@@ -82,13 +82,7 @@ export default function Login() {
         New to SupplyBridge? <Link to="/signup">Create an account</Link>
       </p>
 
-      {/* Remove once the real backend is connected */}
-      <div className="demo-box">
-        Demo accounts<br />
-        Admin: admin@supplybridge.com / admin123<br />
-        Vendor: vendor@demo.com / vendor123<br />
-        Supplier: supplier@demo.com / supplier123
-      </div>
+
     </>
   );
 }

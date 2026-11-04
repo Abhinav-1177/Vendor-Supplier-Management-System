@@ -127,3 +127,12 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Clash Display', sans-serif; }
   .auth-side h2 { font-size: 26px; }
   .auth-side p, .auth-side small { display: none; }
 }
+
+.field-hint { color: var(--text-muted); font-size: 12px; margin-top: 4px; }
+.field textarea {
+  width: 100%; background: #fff; border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 11px 14px; font: 400 14px 'Plus Jakarta Sans', sans-serif; color: var(--text-main);
+  resize: vertical; transition: border-color .2s;
+}
+.field textarea:focus { border-color: var(--accent); outline: none; }
+.field.invalid textarea { border-color: var(--danger); }

@@ -90,3 +90,8 @@
 .sb-modal__close { background: none; border: none; color: #fff; cursor: pointer; font-size: 16px; padding: 4px; }
 .sb-modal__body { padding: 22px; overflow-y: auto; }
 .sb-modal__footer { padding: 14px 22px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
+
+/* ── Stars and progress ── */
+.stars { color: #f59e0b; font-size: 12px; letter-spacing: 1px; }
+.progress-modern { height: 6px; border-radius: 20px; background: var(--border); overflow: hidden; }
+.progress-modern__bar { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--accent), var(--info)); transition: width .5s ease; }

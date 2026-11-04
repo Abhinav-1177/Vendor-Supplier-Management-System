@@ -10,6 +10,7 @@ const initial = {
   email: '',
   phone: '',
   city: '',
+  gstin: '',
   password: '',
   confirmPassword: '',
 };
@@ -21,23 +22,25 @@ function validate(f) {
   if (!/^\S+@\S+\.\S+$/.test(f.email)) e.email = 'Enter a valid email address.';
   if (!/^[6-9]\d{9}$/.test(f.phone)) e.phone = 'Enter a 10-digit mobile number.';
   if (!f.city) e.city = 'Select your city.';
+  if (!/^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$/.test(f.gstin)) e.gstin = 'Enter a valid 15-character GSTIN.';
   if (f.password.length < 8) e.password = 'Use at least 8 characters.';
   if (f.confirmPassword !== f.password) e.confirmPassword = 'Passwords do not match.';
   return e;
 }
 
 // Defined at module level on purpose: a component declared inside Signup would remount on every keystroke
-function Field({ name, label, type = 'text', placeholder, form, errors, onChange, children }) {
+function Field({ name, label, type = 'text', placeholder, hint, form, errors, onChange, children }) {
   return (
     <div className={`field ${errors[name] ? 'invalid' : ''}`}>
       <label htmlFor={name}>{label}</label>
       {children || (
         <input
           id={name} name={name} type={type} placeholder={placeholder}
+          maxLength={name === 'gstin' ? 15 : undefined}
           value={form[name]} onChange={onChange}
         />
       )}
-      {errors[name] && <div className="field-error">{errors[name]}</div>}
+      {errors[name] ? <div className="field-error">{errors[name]}</div> : hint && <div className="field-hint">{hint}</div>}
     </div>
   );
 }
@@ -53,7 +56,8 @@ export default function Signup() {
   if (user) return <Navigate to={ROLE_HOME[user.role]} replace />;
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: name === 'gstin' ? value.toUpperCase() : value });
     if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: undefined });
   };
 
@@ -120,6 +124,11 @@ export default function Signup() {
         </div>
 
         <Field {...fieldProps} name="email" label="Email" type="email" placeholder="you@company.com" />
+
+        <Field
+          {...fieldProps} name="gstin" label="GSTIN" placeholder="07ABCDE1234F1Z5"
+          hint="15-character GST number. An admin checks it before approving your account."
+        />
 
         <div className="field-row">
           <Field {...fieldProps} name="phone" label="Mobile number" type="tel" placeholder="9876543210" />

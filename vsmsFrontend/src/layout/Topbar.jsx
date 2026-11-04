@@ -1,11 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useNotifications } from '../context/NotificationsContext';
 import { flatNav, notificationsPath } from '../config/navConfig';
 
 export default function Topbar({ onMenuClick }) {
   const { user } = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { unreadCount } = useNotifications();
 
   const notifPath = notificationsPath(user.role);
   const current = flatNav(user.role).find((i) => i.to === pathname);
@@ -25,9 +27,12 @@ export default function Topbar({ onMenuClick }) {
       </div>
 
       <div className="topbar-actions">
-        <button className="icon-btn" title="Notifications" aria-label="Notifications" onClick={() => navigate(notifPath)}>
+        <button
+          className="icon-btn" title="Notifications" onClick={() => navigate(notifPath)}
+          aria-label={unreadCount ? `Notifications, ${unreadCount} unread` : 'Notifications'}
+        >
           <i className="bi bi-bell" />
-          <span className="notif-dot" />
+          {unreadCount > 0 && <span className="notif-dot" />}
         </button>
         <button className="icon-btn" title="Messages" aria-label="Messages">
           <i className="bi bi-chat-dots" />
